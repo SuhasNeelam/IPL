@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Welcome Admin</a>
+    <a class="btn btn-outline-dark" href="/adminlogout/">Logout</a>
+  </div>
+</nav>
+<form action="/updatepoints/" method="POST">
+    {% csrf_token %}
+    <div >
+        <input type="text" placeholder="Name" class="form-control" name="name" style="width: 200px; display: inline; margin: auto;" >
+        <input type="text" placeholder="Points" class="form-control" name="points" style="width: 200px; display: inline; margin: auto;" >
+        <input style="display: inline;" type="submit" value="Update" name="" class="btn btn-secondary">
+    </div>
+</form>
+<table style="width: 50%;">
+  <tr>
+    <th>Name</th>
+    <th>Points</th>
+  </tr>
+  {% for thofe in thofes %}
+  <tr>
+    <td>{{thofe.name}}</td>
+    <td>{{thofe.points}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

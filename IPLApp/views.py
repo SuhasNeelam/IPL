@@ -6,6 +6,9 @@ import operator
 # Create your views here.
 
 
+def default_redirect(request):
+    return redirect('adminloginpage')
+
 def adminloginview(request):
     return render(request, "IPLApp/adminlogin.html")
 
